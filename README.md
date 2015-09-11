@@ -1,5 +1,3 @@
-# CBRF
-<<<<<<< HEAD
 CBRF - A Matlab Toolbox (Cosine Bell Rate Function) for the computation of neural rate functions
 
 This Matlab toolbox calculates a neural rate function based on cosine bell functions and the time-rescaling theorem.
@@ -17,6 +15,4 @@ real-time rate function is constructed from these two transformations.
 
 A Demo folder illustrating the algorithm on a set of 128 repeat trials associated with the response of a cat X retinal 
 ganglion cell is provided.
-=======
- CBRF - (Cosine Bell Rate Function) A Matlab Toolbox  for the computation of neural rate functions
->>>>>>> origin/master
+
