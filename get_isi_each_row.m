@@ -9,8 +9,9 @@ function ISI = get_isi_each_row(M)
 % 
 % Note:  For each trial the ISI associated with the first spike is set to the spike time, which means
 %          it is assumed that the beginning of each trial is marked at time 0.
-% Written by Alex Casti, MSSM, Nov 2007
-% Last modified 18feb2008
+%
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 12 September 2015
 %---------------------------------------------------------------------------------------------
 
 if nargin < 1 

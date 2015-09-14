@@ -12,6 +12,8 @@ function errdata = get_ISIb_KS_stat(ISIdata,refindices)
 %                               specifies reference histogram against which to calculate KS stat
 % OUTPUT:   errdata          * (struct) output data struct 
 %
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 10 September 2015
 %----------------------------------------------------------------------------------------------------------------------------
 
 [cols,rows] = size(ISIdata.Bseg);

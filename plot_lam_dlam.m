@@ -7,7 +7,8 @@ function plot_lam_dlam(M,Mlam,Mdlam)
 %            Mlam            * matrix of rate parameters for each spike
 %            Mdlam           * matrix of time derivative of rates for each spike
 % 
-% Written by Alex Casti, MSSM, November 2007
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %---------------------------------------------------------------------------------------------------
 
 % First get number of non-zero spike times from input spike time matrix M

@@ -1,9 +1,15 @@
-%% Demo that constructs the rate function from repeat trials of laboratory spike times
+%% demo_get_rate_function.m
+%------------------------------------------------------------------------------------------------------------------------
+%  Demo that constructs the rate function from repeat trials of laboratory spike times
 %  Data comes from retinal ganglion cell (X-OFF) responses driven by a noisy flashing spot for
 %   128 repeated trials (frozen noise stimulus), each of 8 second duration.  The retinal event
 %   times come from the recording of "S-potentials" in the cat lateral geniculate nucleus (LGN).
-%% Written by Alex Casti, FDU Department of Mathematics
-path(path,'..');
+%
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
+%------------------------------------------------------------------------------------------------------------------------
+
+path(path,'..');  % add path to data and files one directory up
 
 %% Load the demo data (spike times are in seconds)
 load data_example.mat;

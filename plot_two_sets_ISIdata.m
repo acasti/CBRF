@@ -9,8 +9,8 @@ function plot_two_sets_ISIdata(ISIstruct1, ISIstruct2, plot_difference, numbins)
 %          numbins             * (optional) can specify number of histogram bins; otherwise 
 %                                  a default 10*log10(N) bins is used, where N = #data pts
 %
-% Written by Alex Casti, MSSM 17 Jan 2008
-% Last updated 18 Jan 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 11 September 2015
 %------------------------------------------------------------------------------------------
 
 if nargin < 2

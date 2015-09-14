@@ -13,9 +13,11 @@ function [rate,CV,numspikes] = get_mean_rate_CV_per_trial(M,T)
 %
 % Dependencies:  get_numspikes_each_row.m, spiketime_mat2cell.m, get_isi_each_row.m
 %
-% Written by Alex Casti, Cooper Union Department of Mathematics, 17 Sept 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %------------------------------------------------------------------------------------------------------
 
+%% Argument check
 if nargin < 2
   error('Not enough inputs!');
 end

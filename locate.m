@@ -13,7 +13,8 @@ function ind = locate(xx,x)
 % Note:     ind = 0 is returned if x is out of range and too small
 %           ind = n is returned if x is out of range and too large
 %
-% Last modified 18 July 2005 by Alex Casti
+% Written by Alex Casti, FDU Department of Mathematics
+% Last modified 13 September 2015
 %-----------------------------------------------------------------------------
 
 n = length(xx);
@@ -32,7 +33,7 @@ end
 
 while ju - jl > 1
  jm = floor((ju+jl)/2);        % Compute a midpoint
- if (xx(n) > xx(1) & x > xx(jm)) | (~(xx(n) > xx(1)) & ~(x > xx(jm)))
+ if (xx(n) > xx(1) && x > xx(jm)) || (~(xx(n) > xx(1)) && ~(x > xx(jm)))
   jl = jm;
  else
   ju = jm;

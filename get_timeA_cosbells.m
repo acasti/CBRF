@@ -18,8 +18,9 @@ function dataA = get_timeA_cosbells(M, trange, dt, randflag, show_progress)
 %    (3) If input data matrix M is a cell array then it is automatically converted to a zero padded matrix.
 %    (4) Fixed problem that can occur if some trials have zero spikes, or if the maximum number of spikes per trial
 %        is just 1.
-% Written by Alex Casti, MSSM, December 2007
-% Last modified Feb 26, 2008
+%
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %---------------------------------------------------------------------------------------------------------------
 
 % Error checking
@@ -97,13 +98,13 @@ function [Mwhite,prn] = add_PRNs_to_spiketimes(M)
 	seedprime = 1049;  % 4 digit prime will generate 10^4-1 = 9999 non-repeated pseudo-random values
 	decplaces = 4;     % adds PRNs after the 4th decimal place (i.e. at 1/100th msec precision)
   offset = (1/1000)*(1/20);  % subtract this offset from the PRNs (some spikes add jitter, some subtract)
-	[trand, trandscale] = get_pseudo_randnums_for_spiketimes(seedprime,decplaces);
+	[~, trandscale] = get_pseudo_randnums_for_spiketimes(seedprime,decplaces);
   trandscale = trandscale - offset;   % trandscale is already multiplied by appropriate power of 10
   numspikes = length(find(M(:)));
 	% stack the PRN vector so that it equals the length of the spike train
 	if length(trandscale) < numspikes
 	  prn = repmat(trandscale,1,ceil(numspikes/length(trandscale)));
-  	prn = prn(1:numspikes);         % The vector of pseudo-random numbers added 
+  	prn = prn(1:numspikes);          % The vector of pseudo-random numbers added 
   else 
     prn = trandscale(1:numspikes)';  % generated more PRNs than spikes, so just truncate vector
   end
@@ -161,7 +162,7 @@ function [SUPP, lamA_mean, dlamA_mean, tA, numspikes_trial] = ...
 % This function also performs the mapping from the original time t  to the new time A  on the grid.
 	
   dt = mean(diff(t));
-  [v,numspikes_trial] = spikematrix2vec(M);  % need number of spikes per trial (N) to set cell array size
+  [~,numspikes_trial] = spikematrix2vec(M);  % need number of spikes per trial (N) to set cell array size
   numspikes = sum(numspikes_trial);
   numtrials = size(M,1);       % number of trials (repeats)
   lamA_mean = zeros(1,length(t));    % mean lamA (averaged across trials)
@@ -214,7 +215,7 @@ function [MlamA, MdlamA, MA] = get_lamA_timeA_each_spike(M,SUPP,show_progress)
   MlamA = zeros(size(M));
   MdlamA = zeros(size(M));
 	MA = zeros(size(M));
-	[v,numspikes_trial] = spikematrix2vec(M);  % just need number of spikes per trial 
+	[~,numspikes_trial] = spikematrix2vec(M);  % just need number of spikes per trial 
 	numspikes = sum(numspikes_trial);
   numtrials = size(M,1);       % number of trials (repeats)
 	% Sort the SUPP matrix in order of increasing spike time (SUPP keeps track of trial and spike# in trial)

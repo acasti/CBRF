@@ -26,8 +26,8 @@ function [ISIb, ISIb_all, rate_mean, drate_mean] = Bseg2isib(ISIdata)
 %          col 7 = ISI associated with spike (original time)
 %          col 8 = ISI associated with spike (time B)
 %
-% Written by Alex Casti, Cooper Union Math Dept, 20 Jan 2009
-% Last updated 28 Jan 2009
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %--------------------------------------------------------------------------------------------
 
 %% Argument check

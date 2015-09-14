@@ -13,7 +13,8 @@ function [v,N] = spikematrix2vec(M)
 %            that contains the number of non-null entries per row.  Use the associated
 %            Matlab script "spikevec2matrix.m"
 %
-% Written by Alex Casti, MSSM, Nov 2007
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 10 September 2015
 %------------------------------------------------------------------------------------------
 
 % Pre-allocate memory for output v

@@ -9,6 +9,12 @@ function plotyy_mse_cv(bwidths,mse,cv)
 %           cv              * vector of coefficient of variation values (time B)
 %------------------------------------------------------------------------------------
 
+%% Argument check
+if nargin < 3
+  error('Insufficient input arguments!');
+end
+
+%% Make the plot
 figure
 [AX,H1,H2] = plotyy(bwidths,mse,bwidths,cv,@semilogx);
 hold(AX(1), 'on');

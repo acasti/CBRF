@@ -20,14 +20,13 @@ function data = get_bigspikematrix(M,Mb,Mlam,Mdlam)
 %                               column 6 = rate derivative value (original time)
 %                               column 7 = ISI (original time)
 %                               column 8 = ISI (new time)
-%
 % Dependencies:   get_isi_each_row.m
-%
-% Written by Alex Casti, MSSM, Nov 2007
-% Last modified 26 Feb 2008
 % Comments:
 %  (1) Fixed problem that can occur if some trials have no spikes.  There was also a problem
 %      if the maximum number of spikes in any trial was just 1.  (FIXED)
+%
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %----------------------------------------------------------------------------------------------------
 
 if nargin < 4

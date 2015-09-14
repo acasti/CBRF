@@ -11,8 +11,11 @@ function plot_raster_and_rate_function(M,t,rate,lamgrid,tzoom)
 %           tzoom             * (optional) make a second zoom plot 
 %                                 in the time range [tzoom(1),tzoom(2)]
 %
-% Written by Alex Casti, MSSM 17 Jan 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %-----------------------------------------------------------------------------------------------
+
+%% Argument check
 if nargin < 3
   error('Not enough inputs!');
 end
@@ -39,6 +42,7 @@ if (isempty(tzoom) || ~exist('tzoom','var')) || length(tzoom)~=2
   tzoom(2) = input('Enter upper bound of zoom plot.  t1 = : ');
 end
 
+%% Make the plot
 figure
 t0 = t(1); t1 = t(end);  % First plot full range
 subplot(2,1,1)

@@ -27,10 +27,11 @@ function data = isi_partition(M,Mb,Mlam,Mdlam,showplot)
 %      col 7 = ISI associated with spike (original time)
 %      col 8 = ISI associated with spike (time B)
 %
-% Written by Alex Casti, MSSM, Dec 2007
-% Last modified March 24, 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %--------------------------------------------------------------------------------------------------------------------------
 
+%% Argument check
 if nargin < 4
   help isi_partition.m;
   error('Not enough inputs!');
@@ -39,16 +40,17 @@ if (nargin < 5) || isempty(showplot)
   showplot = true;    % show plots by default
 end
 
-% Get data matrix (spike times, trial numbers, spike intervals, etc)
+%% Get data matrix (spike times, trial numbers, spike intervals, etc)
 spikedata = get_bigspikematrix(M,Mb,Mlam,Mdlam);
 B = spikedata.B;      
 numspikes = size(B,1);   % total number of spikes in data set
 
-% Sort the rate vector (and permute rows of spike data matrix B accordingly)
+%% Sort the rate vector (and permute rows of spike data matrix B accordingly)
 lamvec = B(:,5);       % 5th column of B corresponds to rate data
 [lamvec,isort] = sort(lamvec);
 Bsortlam = B(isort,:);
 
+%% Partition the data according to instantaneous rate/rate-derivative values at the spike times
 %-------------------------------------------------------------------------------------------------------------
 %                                        Partition the data
 %-------------------------------------------------------------------------------------------------------------
@@ -102,6 +104,7 @@ for i = 1:numsegx
   end
 end
 
+%% Plot data
 %-------------------------------------------------------------------------------------------------
 %                                             PLOT DATA
 %-------------------------------------------------------------------------------------------------
@@ -212,6 +215,7 @@ if showplot
   end
 end  % end of showplot conditional
 
+%% Output data structure
 %-----------------------------------------
 %         Define some output data
 %-----------------------------------------

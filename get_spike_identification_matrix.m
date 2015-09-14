@@ -9,19 +9,18 @@ function [B, numspikes] = get_spike_identification_matrix(M)
 % OUTPUT:     B                 * output spike data matrix (see below)
 %             numspikes         * (vector) number of spikes in each trial
 % Note: The output is a matrix B with the following columns:
-%                                    B columns
 %                               column 1 = trial #
 %                               column 2 = spike # in trial
 %                               column 3 = spike time (original time)
 %                               column 4 = ISI associated with spike (1st spike in trial has ISI given by spike time)
 %
 % Dependencies:   get_isi_each_row.m
-%
-% Written by Alex Casti, MSSM, Jan 2008
-% Last updated 26 Feb 2008
 % Comments:
 %  (1) Fixed problem that can occur if some trials have no spikes.  There was also a problem
 %      if the maximum number of spikes in any trial was just 1.  (FIXED)
+%
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 11 September 2015
 %----------------------------------------------------------------------------------------------------
 
 if ~isnumeric(M)
@@ -48,5 +47,4 @@ for i = 1:inrows
     i0 = irange(end)+1;
   end
 end
-comments = {'trial','spike#','spike time','ISI'};
 

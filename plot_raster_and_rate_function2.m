@@ -13,7 +13,8 @@ function plot_raster_and_rate_function2(M1,M2,t,rate1,rate2,tzoom,lamgrid)
 %           lamgrid            * (optional) plot horizontal line at these values 
 %                                  in rate plot (default false)
 %
-% Written by Alex Casti, MSSM 25 Feb 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 12 September 2015
 %-----------------------------------------------------------------------------------------------
 if nargin < 5
   error('Not enough inputs!');

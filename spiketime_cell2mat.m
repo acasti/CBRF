@@ -8,7 +8,8 @@ function M = spiketime_cell2mat(S)
 % OUTPUT:          M                    * (N x maxrow) matrix of spike times (zero padded), where 'maxrow' is the maximum
 %                                          number of spikes in any sweep of the input cell array S.
 %
-% Written by Alex Casti, MSSM, November 2007
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 10 September 2015
 %----------------------------------------------------------------------------------------------------------------
 
 if ~iscell(S)

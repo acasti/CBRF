@@ -1,14 +1,10 @@
 function [D,Dmedian] = get_median_spikemetric_across_trials(M1,M2,q)
 %--------------------------------------------------------------------------------------------------------------
-% Calculate all spike train metric values for sets of 
-%   spike responses.  In this version, metric distances are compared for
-%   trials at the same level only, and thus returns a cell array
-%   D{q(i)}(:) that has the same number of entries as there are trials.
-%   This is to be used when comparing "distances" between spike trains arising 
-%   from different stimulus parameters, or between model verus experiment, for
-%   example.
-% 
-% Uses Jon Victor's spike time metric.
+% Calculate the Victor spike train metric for two sets of spike responses.  In this version, metric distances 
+%   are computed bewteen corresponding trials of spike times in M1 and M2 (i.e. the metric is computed
+%   row by row for corresponding rows only).  Returns a cell array D{q(i)}(:) that has the same length as the 
+%   number of rows (trials) in both M1 and M2.  This function is useful when comparing "distances" between 
+%   spike trains arising from different stimulus parameters, or between model verus experiment, and so forth.
 %
 % USAGE:    [D,Dmedian] = get_median_spikemetric_across_trials(M1,M2,q);
 % INPUT:    M1{1:N1,:}                       * matrix 1 of spike times (zero padded) 
@@ -18,10 +14,16 @@ function [D,Dmedian] = get_median_spikemetric_across_trials(M1,M2,q)
 % OUTPUT:   D{1:length(q)}(min(N1,N2))       * vector of raster line distances (cell array if length(q) > 1)
 %           Dmedian(1:length(q))             * median of distance distribution at each q value
 %
-% Dependencies:  spkd_acmex.m, spiketime_mat2cell.m, get_numspikes_each_row.m
+% Dependencies:  spkd_acmex (compiled C-MEX), spiketime_mat2cell.m, get_numspikes_each_row.m
+% Comments:
+%   (1) Uses Jon Victor's spike time metric: Victor & Purpura, "Nature and precision of temporal coding in 
+%       visual cortex: a metric-space analysis," J.Neurophysiol. Vol.76, No.2, pp.1310-1326 (1996).
+%   (2) The source code spkd_acmex.c (C-MEX file) is included, as well as Windows 32-bit and 64-bit binaries
+%       (compiled with MS Visual Studio 2010, Windows 7).  Compile it for your operating system as necessary
+%       using >> mex spkd_acmex.c
 %
-% Written by Alex Casti, MSSM, 21 Feb 2006
-% Last updated 04 March 2008 (for time-rescaling project)
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %--------------------------------------------------------------------------------------------------------------
 
 if nargin < 3

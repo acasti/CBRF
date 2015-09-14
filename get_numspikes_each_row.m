@@ -6,7 +6,8 @@ function numspikes = get_numspikes_each_row(M)
 % INPUT:           M              % m x n matrix of spike times (zero padded)
 % OUTPUT:          numspikes      % length m vector of number of spike times per row (trial)
 %
-% Written by Alex Casti, MSSM, 04 March 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %---------------------------------------------------------------------------------------------
 
 if nargin < 1 

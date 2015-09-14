@@ -13,8 +13,8 @@ function M = spikevec2matrix(v,N)
 %            length(N) indicates the number of trials and max(N) the maximum
 %            number of spikes per trial (must be known for the zero padding).
 %
-% Written by Alex Casti, MSSM, 26 Nov 2007
-% Last updated 10 Jan 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 10 September 2015
 %------------------------------------------------------------------------------------------
 
 if (nargin < 2) || any([isempty(v),isempty(N)])

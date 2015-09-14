@@ -8,7 +8,8 @@ function S = spiketime_mat2cell(M)
 %                                 number of spikes in any sweep.
 % OUTPUT:        S            * (1 x N) cell array of spike times with trailing zeros removed
 %
-% Written by Alex Casti, MSSM, November 2007
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 10 September 2015
 %----------------------------------------------------------------------------------------------------------------
 
 if ~isnumeric(M)

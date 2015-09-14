@@ -17,10 +17,11 @@ function dataB = get_timeB_cosbells(MA, tA, bwidth, show_progress)
 %    (3) If input data matrix M is a cell array then it is automatically converted to a zero padded matrix.
 %    (4) Fixed problem that can occur if some trials have no spikes.  There was also a problem
 %      if the maximum number of spikes in any trial was just 1.  (FIXED)
-%    (5) I verified on 26 Feb 2008 that this fixed version of the function is 100% consistent with the older
+%    (5) I verified that this fixed version of the function is 100% consistent with the older
 %        version for data that doesn't suffer a paucity of spikes as mentioned above in (4).
 %
-% Last modified 26 Feb 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %---------------------------------------------------------------------------------------------------------------
 
 % Error checking
@@ -86,7 +87,7 @@ numspikes = sum(numspikes_trial);
 % NOTE: For BIGMA: col1 = trial# i, col2 = spike# in trial j, col3 = spike time, col4 = ISI associated with spike
 spikevec = BIGMA(:,3);
 % need to sort the spikes first (note that we have effectively collapsed them onto a single time axis for time B)
-[spikevec_sort,isort] = sort(spikevec);
+[~,isort] = sort(spikevec);
 BIGMA_sort = BIGMA(isort,:);
 for nspike = 1:numspikes
   i = BIGMA_sort(nspike,1);       % trial# is first column of BIGMA_sort matrix
@@ -155,7 +156,7 @@ function [SUPP, lamB_mean, dlamB_mean, tB, numspikes_trial] = ...
 %  the rate and rate derivative over the grid points only; any spike time likely does not fall on the grid precisely.
 % This function also performs the mapping from the time tA  to the new time B  on the grid.
   dtA = mean(diff(tA));
-  [v,numspikes_trial] = spikematrix2vec(MA);  % need number of spikes per trial (N) to set cell array size
+  [~,numspikes_trial] = spikematrix2vec(MA);  % need number of spikes per trial (N) to set cell array size
   numspikes = sum(numspikes_trial);
   numtrials = size(MA,1);       % number of trials (repeats)
   lamB_mean = zeros(1,length(tA));    % mean lamB (averaged across trials)
@@ -210,7 +211,7 @@ function [MlamB, MdlamB, MB] = get_lamB_timeB_each_spike(MA,SUPP,show_progress)
   MlamB = zeros(size(MA));
   MdlamB = zeros(size(MA));
 	MB = zeros(size(MA));
-	[v,numspikes_trial] = spikematrix2vec(MA);  % just need number of spikes per trial 
+	[~,numspikes_trial] = spikematrix2vec(MA);  % just need number of spikes per trial 
 	numspikes = sum(numspikes_trial);
   numtrials = size(MA,1);       % number of trials (repeats)
 	% Sort the SUPP matrix in order of increasing spike time (SUPP keeps track of trial and spike# in trial)

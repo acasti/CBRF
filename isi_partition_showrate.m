@@ -36,10 +36,11 @@ function data = isi_partition_showrate(M,Mb,Mlam,Mdlam,showplot,scaleOption)
 %  (2) Also calculates best gamma distribution fits to each histogram, but does not show
 %       this data in the output figures.  This program is very close to "isi_partition2.m".
 %
-% Written by Alex Casti, MSSM, Dec 2007
-% Last modified November 5, 2008
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 13 September 2015
 %--------------------------------------------------------------------------------------------------------------------------
 
+%% Argument check
 if nargin < 4
   help isi_partition.m;
   error('Not enough inputs!');
@@ -51,7 +52,7 @@ if (nargin < 6) || isempty(scaleOption)
   scaleOption = false;    % do not give user option to rescale ISI x/y axes (default)
 end
 
-% Get data matrix (spike times, trial numbers, spike intervals, etc)
+%% Get data matrix (spike times, trial numbers, spike intervals, etc)
 spikedata = get_bigspikematrix(M,Mb,Mlam,Mdlam);
 B = spikedata.B;      
 ISIb = B(:,8);           % vector of time B intervals
@@ -121,6 +122,7 @@ for i = 1:numsegx
   end
 end
 
+%% Plot data
 %-------------------------------------------------------------------------------------------------
 %                                             PLOT DATA
 %-------------------------------------------------------------------------------------------------
@@ -262,6 +264,7 @@ if showplot && ~scaleOption
   end
 end
 
+%% Output data structure
 %-----------------------------------------
 %         Define some output data
 %-----------------------------------------

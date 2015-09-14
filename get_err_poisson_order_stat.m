@@ -17,8 +17,9 @@ function [mse,cv,errdata] = get_err_poisson_order_stat(MB)
 %                                 delta : spacing between expected spike times
 %                                 U : intervals after Poisson --> Uniform [0,1] transformation
 %                                 U_expected: expected spike time in transformed variable U
-% Written by Alex Casti, MSSM Jan 2007
-% Last updated 17 Sept 2008 (error spotted)!
+%
+% Written by Alex Casti, FDU Department of Mathematics
+% Last updated 11 September 2015
 %-------------------------------------------------------------------------------------------------
 
 % Get a sorted row vector of spike times collapsed onto single axis (no 0's)
