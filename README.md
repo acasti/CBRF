@@ -1,4 +1,5 @@
-CBRF - A Matlab Toolbox (Cosine Bell Rate Function) for the computation of neural rate functions.
+CBRF - A Matlab Toolbox (Cosine Bell Rate Function) for the computation of neural rate functions
+
 Written by Alex Casti, FDU Department of Mathematics, Teaneck, NJ
 
 This Matlab toolbox calculates a neural rate function based on cosine bell functions and the time-rescaling theorem. The cosine bell function give a continuous function representation to each spike event time, as Gaussians often do in other algorithms. In contrast to a Gaussian, the cosine bell function has compact support, which in this algorithm is adaptive and depends on local interspike intervals. More details of the CBRF algorithm are available in the Documentation folder.
